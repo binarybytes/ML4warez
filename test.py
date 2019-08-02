@@ -13,5 +13,12 @@ import pandas as pd
 #instantiate the csv
 malData = pd.read_csv("MalwareData.csv", sep="|")
 
-legit = malData[0:41323].drop(["legitimate"])
+legit = malData[0:41323].drop(["legitimate"], axis=1)
+
+mals = malData[41323::].drop(["legitimate"], axis=1)
+
+print("the shape of legit dataset is, %s samples, %s features " %(legit.shape[0],legit.shape[1]))
+
+print ("the shape of mals dataset is, %s samples, %s features " %(mals.shape[0],mals.shape[1]))
+#run
 
